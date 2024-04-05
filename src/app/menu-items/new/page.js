@@ -35,11 +35,11 @@ const page = () => {
       <div className='flex flex-wrap justify-center gap-4'>
        {menuItems.length > 0 &&
               menuItems.map((e) => (
-                <button className="rounded-lg gap-4 w-[220px] border mt-2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 p-3">
+                <button className="rounded-lg gap-4  border mt-2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 p-3">
                 <Link href={'/menu-items/edit/' +e._id}>
                 <div>Edit this</div>
-                  <div className="flex flex-col w-[250px]">
-                  <div className='flex items-center w-[250px]'>
+                  <div className="flex flex-col">
+                  <div className='flex items-center'>
                   <img src={e.image} alt="" className="w-[200px] rounded-lg h-[150px]" />
                   </div>
                   <div className="flex flex-col justify-start items-start mt-3 text-gray-400">
@@ -47,7 +47,7 @@ const page = () => {
                   </div>
                   <p><span className="text-gray-500 font-semibold">Name: </span>{e.name}</p>
                   <p><span className="text-gray-500 font-semibold">Price:$</span>  {e.price}</p>
-                  <p><span className="text-gray-500 font-semibold">Description: </span>{e.description}</p>
+                  <p><span className="text-gray-500 font-semibold">Description: </span><span className='w-[200px] line-clamp-2'>{e.description}</span> </p>
                   </div>
                   </div>
                 </Link>

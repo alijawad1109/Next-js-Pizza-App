@@ -30,12 +30,12 @@ const page = () => {
       )}
         {orders.length > 0 &&
           orders.map((order) => 
-          <div className="bg-gray-200 p-4 mb-2 rounded-lg grid grid-cols-3 place-items-center">
+          <div className="bg-gray-200 p-4 mb-2 rounded-lg flex flex-wrap  gap-4 items-center justify-between">
             <div className="flex flex-col">
              {order.cartItems?.map(p => p.name).join(', ')}
             <span>{order.userEmail}</span>
             </div>
-            <div className={(order.paid ? " bg-green-500 p-2 text-white  rounded-lg" : "bg-red-500  text-white p-2 rounded-lg")}>{order.paid ? 'Paid' : 'Un-Paid'}</div>
+            <div className={(order.paid ? " bg-green-500 p-1 text-white  rounded-lg" : "bg-red-500  text-white p-1 rounded-lg")}>{order.paid ? 'Paid' : 'Un-Paid'}</div>
             <div className="flex gap-3 items-center">{dateTime(order.createdAt)} <Link href={"/orders/"+order._id} className="btn">Show Order</Link> </div>
           </div>
           )}

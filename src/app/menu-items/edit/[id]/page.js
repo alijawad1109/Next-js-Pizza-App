@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import UserTabs from "../../../components/layout/UserTabs";
-import UserProfile from "../../../components/UserProfile";
+import {UserProfile} from "../../../components/UserProfile";
 import toast from "react-hot-toast";
 import Link from "next/link";
 import DeleteButton from '@/app/components/DeleteButton'

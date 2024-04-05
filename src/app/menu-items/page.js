@@ -194,9 +194,9 @@ const page = () => {
             {editedCategory ? "Update" : "Create"}
           </button>
         </form>
-        <div className="flex flex-col">
-          <h2 className="flex flex-col">
-            Edit Category:
+            Edit&nbsp;Category:
+        <div className="flex">
+          <h2 className="flex gap-4">
             {menuItems.length > 0 &&
               menuItems.map((e) => (
                 <button
@@ -207,7 +207,7 @@ const page = () => {
                     setPrice(e.price);
                     setDescription(e.description)
                   }}
-                  className="rounded-lg w-[220px] border mt-2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 p-3"
+                  className="rounded-lg p-2 border mt-2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 p-3"
                 >
                   <div className="flex flex-col w-[250px]">
                     <img src={e.image} alt="" className="w-[200px] h-[150px]" />
@@ -226,10 +226,12 @@ const page = () => {
                         {e.price}
                       </p>
                       <p>
-                        <span className="text-gray-500 font-semibold">
+                        <span className="text-gray-500 font-semibold ">
                           Description:{" "}
                         </span>
+                        <span className="line-clamp-3 text-sm">
                         {e.description}
+                        </span>
                       </p>
                     </div>
                   </div>
