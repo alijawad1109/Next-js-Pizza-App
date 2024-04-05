@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.primary{
+  color:  #f13a01
+}
+.btn {
+  padding: 7px 20px;
+  border: unset;
+  border-radius: 15px;
+  color: #e8e8e8;
+  z-index: 1;
+  background:  #f13a01;
+  position: relative;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: capitalize;
+  transition: all 250ms;
+  overflow: hidden;
+  -webkit-transition: all 250ms;
+  -moz-transition: all 250ms;
+  -ms-transition: all 250ms;
+  -o-transition: all 250ms;
+}
+ 
+ .btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color:rgb(247, 243, 243) !important;
+  z-index: -99;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  transition: all 250ms ;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+ 
+ .btn:hover {
+  color:#212121;
+  outline: 2px solid #f13a01;
+ }
+ 
+ .btn:hover::before {
+  width: 100%;
+ }
+ .hero{
+  display: grid;
+  grid-template-columns: .4fr .6fr;
+ }
+ .btn:disabled{
+  cursor: not-allowed;
+ }
+ label{
+  letter-spacing: .25px;
+  font-size: 14px;
+  color: #959494;
+ }
+ .non-btn{
+  padding: 7px 20px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: capitalize;
+  transition: all 250ms;
+  overflow: hidden;
+  -webkit-transition: all 250ms;
+  -moz-transition: all 250ms;
+  -ms-transition: all 250ms;
+  -o-transition: all 250ms;
+ }
+ .non-btn:hover{
+  border-radius: 15px;
+  background-color:#f13a01 !important;
+  /* z-index: -99; */
+  color: #e8e8e8;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  transition: all 250ms ;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+ }
+ /* Hide scrollbar for Chrome, Edge, and Safari */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+}
+
+/* Hide scrollbar for Firefox */
+.hide-scrollbar {
+  scrollbar-width: none;
+}
