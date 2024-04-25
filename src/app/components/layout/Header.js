@@ -27,7 +27,7 @@ const Header = () => {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-white max-w-5xl mx-auto">
       <header className="flex gap-2 justify-between items-center p-4 md:flex-row flex-col">
         <div className="flex justify-between items-center w-[100%]">
           <Link
@@ -66,10 +66,10 @@ const Header = () => {
             About
           </Link>
           <Link
-            href={"/#contact"}
+            href={"/our-story"}
             className="hover:text-indigo-500 scroll-smooth transition duration-150  ease-in-out"
           >
-            Contact
+            Our&nbsp;Story
           </Link>
           {status === "authenticated" && (
             <>

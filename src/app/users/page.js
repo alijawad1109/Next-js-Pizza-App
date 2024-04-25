@@ -35,7 +35,7 @@ const page = () => {
                   {user.name ? user.name : "User name is not defined"}
                 </span>
                 <span>Email:{user.email}</span>
-                <Link href={'/users/' +user._id}>
+                <Link href={'/users/'+user._id}>
                 <button><Edit/></button>
                 </Link>
               </div>

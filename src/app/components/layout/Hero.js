@@ -3,9 +3,9 @@ import Right from "../icons/Right";
 
 const Hero = () => {
   return (
-    <section className="flex flex-col md:flex-row justify-between items-center mt-4 px-4 lg:px-8">
+    <section className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center mt-4 px-4 lg:px-8">
       <div className="lg:w-[400px] md:w-[300px] w-full text-center lg:text-left">
-        <h1 className="text-2xl lg:text-4xl font-semibold">
+        <h1 className="text-2xl lg:text-4xl font-semibold tracking-[2px]">
           Everything is better with a{" "}
           <span className="text-orange-600">Pizza</span>
         </h1>
@@ -14,11 +14,10 @@ const Hero = () => {
           delicious joy in life.
         </p>
         <div className="flex justify-center lg:justify-start gap-4">
-          <button className="btn flex gap-2 items-center">
+          <a href={"/menu"} className="btn flex gap-2 items-center">
             Order now
             <Right/>
-          </button>
-          <button>Learn more</button>
+          </a>
         </div>
       </div>
       <div className="mt-8 lg:mt-0 flex justify-center">

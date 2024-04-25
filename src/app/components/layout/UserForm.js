@@ -10,21 +10,16 @@ const UserForm = ({ user, onSave }) => {
     return storedValue !== null ? JSON.parse(storedValue) : initialState;
   };
 
-  const [city, setCity] = useState(() => loadState("city", user?.city || ""));
+  const [userName, setUserName] = useState(user?.name || "");
+  const [city, setCity] = useState(user?.city || "");
   const [email, setEmail] = useState(user?.email); // Assuming email doesn't change as it's disabled
-  const [country, setCountry] = useState(() =>
-    loadState("country", user?.country || "")
-  );
-  const [phone, setPhone] = useState(() =>
-    loadState("phone", user?.phone || "")
-  );
-  const [code, setCode] = useState(() => loadState("code", user?.code || ""));
-  const [address, setAddress] = useState(() =>
-    loadState("address", user?.address || "")
-  );
-  const [userName, setUserName] = useState(() =>
-    loadState("userName", user?.name || "")
-  );
+  const [country, setCountry] = useState(user?.country)
+  const [phone, setPhone] = useState(user?.phone || "");
+  const [image, setImage] = useState(user?.image || '');
+
+  const [code, setCode] = useState(user?.code || "");
+  const [address, setAddress] = useState(user?.address || "")
+  
   const [saved, setSaved] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [admin, setAdmin] = useState(() =>
@@ -34,13 +29,14 @@ const UserForm = ({ user, onSave }) => {
   const session = useSession();
   const { status } = session;
   const { data: loggedInUser } = UserProfile();
-  const userImage = session.data?.user?.image;
+  // const userImage = session.data?.user?.image;
+  // console.log(userImage , 'userIMage')
 
-  useEffect(() => {
-    if (status === "authenticated") {
-      setUserName(session.data.user.name);
-    }
-  }, [user, session.data, status]);
+  // useEffect(() => {
+  //   if (status === "authenticated") {
+  //     setUserName(session.data.user.name);
+  //   }
+  // }, [user, session.data, status]);
 
   // Save to sessionStorage when values change
   useEffect(() => {
@@ -74,20 +70,20 @@ const UserForm = ({ user, onSave }) => {
         )}
         <div className="flex gap-2">
           <div className="flex">
-            <img src={userImage} className="w-[100px] h-[60px] rounded-full" />
+            <img src={image} className="w-[100px] h-[60px] rounded-full" />
           </div>
           <form
             className="flex flex-col gap-1"
             onSubmit={(e) =>
               onSave(e, {
                 name: userName,
-                Image: userImage,
-                city: city,
-                country: country,
-                phone: phone,
-                address: address,
-                code: code,
-                admin: admin,
+                Image: image,
+                 city,
+                country,
+                phone,
+                address,
+                 code,
+                 admin,
                 email,
               })
             }

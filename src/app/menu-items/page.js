@@ -118,10 +118,10 @@ const page = () => {
       </div>
       <section className="max-w-[900px] mx-auto mt-8 ">
         <form
-          className="flex flex-col gap-1 items-center"
+          className="flex flex-col gap-4 items-center px-4 sm:px-0"
           onSubmit={handleCategory}
         >
-          <div className="flex gap-2">
+          <div className="flex flex-col w-full sm:w-[300px]">
             <div className="flex flex-col w-[300px]">
               <label>
                 {editedCategory ? "Update Category" : "New Category Name"}{" "}
@@ -190,13 +190,16 @@ const page = () => {
               />
             </div>
           </div>
-          <button className="btn">
-            {editedCategory ? "Update" : "Create"}
-          </button>
+<button className="btn"
+  disabled={!categoryName || !price || !description || !image || !selectedCategory} // This line ensures the button is disabled if any field is empty
+>
+  {editedCategory ? "Update" : "Create"}
+</button>
         </form>
-            Edit&nbsp;Category:
-        <div className="flex">
-          <h2 className="flex gap-4">
+        <div className="max-w-3xl mx-auto overflow-x-scroll ">
+        Edit&nbsp;Category:
+        <div className="flex flex-wrap md:flex-nowrap">
+          <h2 className="flex gap-4 max-w-4xl mx-auto">
             {menuItems.length > 0 &&
               menuItems.map((e) => (
                 <button
@@ -207,7 +210,7 @@ const page = () => {
                     setPrice(e.price);
                     setDescription(e.description)
                   }}
-                  className="rounded-lg p-2 border mt-2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 p-3"
+                  className="rounded-lg p-2 border mt-2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
                 >
                   <div className="flex flex-col w-[250px]">
                     <img src={e.image} alt="" className="w-[200px] h-[150px]" />
@@ -239,6 +242,8 @@ const page = () => {
               ))}
           </h2>
         </div>
+        </div>
+      
       </section>
     </div>
   );

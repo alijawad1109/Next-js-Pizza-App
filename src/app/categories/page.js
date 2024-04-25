@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import UserTabs from "../components/layout/UserTabs";
 import {UserProfile} from "../components/UserProfile";
 import toast from "react-hot-toast";
-import Trash from "../components/icons/Trash";
 import Edit from "../components/icons/Edit";
 import DeleteButton from "../components/DeleteButton";
 
@@ -106,13 +105,13 @@ const page = () => {
             </div>
           </div>
           <div className=" flex gap-3">
-          <button className="btn">
+          <button className="btn" disabled={!categoryName.trim()}>
             {editedCategory ? "Update" : "Create"}
           </button>
           <button onClick={()=>{
             setEditedCategory(null);
             setCategoryName(' ')
-          }} type="button">
+          }} type="button"  >
            Cancel
           </button>
           </div>

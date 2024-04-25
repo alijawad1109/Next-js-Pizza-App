@@ -35,6 +35,9 @@ const Page = () => {
   function handleAddressChange(propName, value) {
     setAdress((prevAddress) => ({ ...prevAddress, [propName]: value }));
   }
+  function isFormValid() {
+    return Object.values(adress).every(value => value.trim() !== '');
+  }
   async function proceedToPay(e) {
     try {
       e.preventDefault();
@@ -117,10 +120,10 @@ const Page = () => {
           <AddressInput
             addressProps={adress}
             setAddressProps={handleAddressChange}
-            disabled={true}
+            disabled={false}
           />
           <div className="w-full">
-            <button className="btn w-[100%] mt-2" type="submit">
+            <button className="btn w-[100%] mt-2" type="submit" disabled={!isFormValid()}>
               Pay ${total + 5}
             </button>
           </div>

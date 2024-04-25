@@ -1,32 +1,31 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import {signIn} from "next-auth/react";
+import { signIn } from "next-auth/react";
 
 import { useState } from "react";
 const page = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [creatingUser,setCreatingUser]=useState(false)
-  const [userCreated,setUserCreated]=useState(false)
-  const [error,setError]=useState(false)
+  const [creatingUser, setCreatingUser] = useState(false);
+  const [userCreated, setUserCreated] = useState(false);
+  const [error, setError] = useState(false);
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     setCreatingUser(true);
     try {
-      await fetch("/api/register", 
-      {
+      await fetch("/api/register", {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: { "Content-Type": "application/json" },
       });
       setCreatingUser(false);
-      setUserCreated(true)
+      setUserCreated(true);
     } catch (error) {
-      console.log(error)
-      setError(true)
+      console.log(error);
+      setError(true);
     }
-  } 
+  };
   return (
     <div>
       <div className="flex justify-center items-center mt-8">
@@ -35,13 +34,14 @@ const page = () => {
             Sign Up
           </p>
           {userCreated && (
-            <div>User Created Successfully. Now you can <Link href={'/login'} className="underline">Login</Link></div>
+            <div>
+              User Created Successfully. Now you can{" "}
+              <Link href={"/login"} className="underline">
+                Login
+              </Link>
+            </div>
           )}
-          {
-            error && (
-              <div>Error in making user. Plz try again.</div>
-            )
-          }
+          {error && <div>Error in making user. Plz try again.</div>}
           <form
             className="flex flex-col gap-4 mb-3"
             onSubmit={handleFormSubmit}
@@ -65,14 +65,23 @@ const page = () => {
             <p className="text-xs text-center text-gray-500 font-sans">
               Already have an account?
               <span className="ml-0.25 text-sm underline decoration-teal-500 primary font-bold cursor-pointer">
-                <Link href={'/login'}>Sign In &raquo;</Link>
+                <Link href={"/login"}>Sign In &raquo;</Link>
               </span>
             </p>
-            <button disabled={creatingUser} className="py-2 px-3 font-sans rounded-full btn text-white cursor-pointer shadow-md active:shadow-none">
+            <button
+              disabled={
+                creatingUser || email.length === 0 || password.length === 0
+              }
+              className="py-2 px-3 font-sans rounded-full btn text-white cursor-pointer shadow-md active:shadow-none"
+            >
               Sign Up
             </button>
+
             <div className="flex flex-col justify-start mt-2 gap-3">
-              <div className="rounded-full p-2.5 shadow-lg flex justify-center items-center font-sans text-sm gap-1.25 border-2 border-gray-500 cursor-pointer" onClick={()=>signIn('google' , {callbackUrl:"/"})}>
+              <div
+                className="rounded-full p-2.5 shadow-lg flex justify-center items-center font-sans text-sm gap-1.25 border-2 border-gray-500 cursor-pointer"
+                onClick={() => signIn("google", { callbackUrl: "/" })}
+              >
                 {/* SVG for Google login */}
 
                 <svg
